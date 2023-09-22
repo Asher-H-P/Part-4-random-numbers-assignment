@@ -11,11 +11,12 @@ namespace Part_4_random_numbers_assignment
         static void Main(string[] args)
         {
             Random generator = new Random();
-            int min, max, die1, die2, min2, max2;
+            int min, max, die1, die2;
             string yn1, yn2, yn3;
+            double dcml1, dcml2, dcml3, dcml4;
             yn1 = "Y";
             yn2 = "Y";
-            
+            yn3 = "Y";
 
             
             Console.WriteLine("Please pick a min & max number.");
@@ -45,8 +46,18 @@ namespace Part_4_random_numbers_assignment
                 Console.WriteLine("You rolled some dice. The first dice reads " + die1 + ", and the second dice reads " + die2 + ". Together they equal " + (die1 + die2) + ". Do you want to roll again? (Y/N)");
                 yn2 = Console.ReadLine();
             }
-            Console.WriteLine(generator.NextDouble());
-            Console.ReadLine();
+            while (yn3 == "Y" || yn3 == "y")
+            {
+                dcml1 = (generator.NextDouble() + generator.Next(min, (max - 1)));
+                dcml2 = (generator.NextDouble() + generator.Next(min, (max - 1)));
+                dcml3 = (generator.NextDouble() + generator.Next(min, (max - 1)));
+                Console.WriteLine("Here are three random decimal numbers between your min & your max.");
+                Console.WriteLine(dcml1);
+                Console.WriteLine(dcml2);
+                Console.WriteLine(dcml3);
+                Console.WriteLine("Would you like three more? (Y/N)");
+                yn3 = Console.ReadLine();
+            }
         }
     }
 }
